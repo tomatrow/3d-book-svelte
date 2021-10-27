@@ -1,6 +1,6 @@
 {
 	"name": "3d-book-svelte",
-	"version": "0.0.3",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -10,7 +10,7 @@
 		"package": "svelte-kit package",
 		"lint": "prettier --check .",
 		"format": "prettier --write .",
-        "publish": "pnpm publish ./package"
+		"publish": "pnpm publish ./package"
 	},
 	"devDependencies": {
 		"@sveltejs/kit": "next",
@@ -31,5 +31,5 @@
 		"typescript": "^4.4.4"
 	},
 	"type": "module",
-    "homepage": "https://github.com/tomatrow/3d-book-svelte#readme"
+	"homepage": "https://github.com/tomatrow/3d-book-svelte#readme"
 }
