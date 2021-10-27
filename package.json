@@ -10,7 +10,7 @@
 		"package": "svelte-kit package",
 		"lint": "prettier --check .",
 		"format": "prettier --write .",
-		"publish": "pnpm publish ./package"
+		"publish": "pnpm run lint && pnpm run package && pnpm publish ./package"
 	},
 	"devDependencies": {
 		"@sveltejs/kit": "next",
