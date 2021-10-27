@@ -1,0 +1,34 @@
+{
+	"name": "3d-book-svelte",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"preview": "svelte-kit preview",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"package": "svelte-kit package",
+		"lint": "prettier --check .",
+		"format": "prettier --write .",
+        "publish": "pnpm publish ./package"
+	},
+	"devDependencies": {
+		"@sveltejs/kit": "next",
+		"autoprefixer": "^10.3.7",
+		"cssnano": "^5.0.8",
+		"postcss": "^8.3.9",
+		"postcss-load-config": "^3.1.0",
+		"postcss-nested": "^5.0.6",
+		"prettier": "^2.4.1",
+		"prettier-plugin-svelte": "^2.4.0",
+		"svelte": "^3.42.6",
+		"svelte-check": "^2.2.6",
+		"svelte-preprocess": "^4.9.8",
+		"svelte-typed-context": "^1.0.1",
+		"svelte2tsx": "^0.4.7",
+		"tailwindcss": "^2.2.16",
+		"tslib": "^2.3.1",
+		"typescript": "^4.4.4"
+	},
+	"type": "module"
+}
