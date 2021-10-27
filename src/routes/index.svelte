@@ -72,4 +72,36 @@
         	</div>
         </Book>
     </div>
+    
+    <h2>Defaults</h2>
+    
+    <div class="w-[40%] mx-auto transition duration-425 {open ? 'translate-x-1/2' : ''}">
+        <Book class="text-white" bind:flip bind:open>
+            <div slot="front-cover" class={blackFill}>
+                Front Cover
+            </div>
+            <div slot="front-endpaper" class={blackFill}>
+                Front Endpaper
+            </div>
+            {#each [1,2,3,4,5] as i}
+                <Page>
+                    <div slot="page-front" class={blackFill}>
+                        Front Page {i}
+                    </div>
+                    <div slot="page-back" class={blackFill}>
+                        Back Page {i}
+                    </div>
+                </Page>
+            {/each}
+            <div slot="back-endpaper" class={blackFill}>
+                Back Endpaper
+            </div>
+            <div slot="back-cover" class={blackFill}>
+                Back Cover
+            </div>
+        	<div slot="spine" class={blackFill}>
+        		Spine
+        	</div>
+        </Book>
+    </div>    
 </div>

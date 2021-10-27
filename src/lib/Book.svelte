@@ -69,19 +69,20 @@
     </div>
 </section>
 
-<style global lang="postcss">
+<style lang="postcss">
     .jacket {
         perspective: var(--perspective, 100rem);
         perspective-origin: bottom left;
         
         .book {
-            --aspect-h: var(var(--aspect-h), 1);
-            --aspect-w: var(var(--aspect-w), 1);
-            --thickness: var(var(--thickness), 2.5rem);
-            --half-thickness: calc(var(--thickness) / 2);
-            --aspect-ratio: var(--aspect-h)/var(--aspect-w);
-            --angle: var(var(--angle), 160deg);
-            --raise: var(var(--raise), 4rem);
+            --aspect-h-inner: var(--aspect-h, 1);
+            --aspect-w-inner: var(--aspect-w, 1);
+            --thickness-inner: var(--thickness, 2.5rem);
+            --angle-inner: var(--angle, 160deg);
+            --raise-inner: var(--raise, 4rem);
+
+            --aspect-ratio: calc(var(--aspect-h-inner)/var(--aspect-w-inner));
+            --half-thickness: calc(var(--thickness-inner) / 2);
     
             @apply relative;
 
@@ -89,17 +90,17 @@
         	transform-style: preserve-3d;
         	transition: transform .5s;
     
-            & > * {
+            & > :global(*) {
                 @apply absolute inset-0 w-full h-full;
             }
 
             &.open {
-                transform: translate3d(0,0,var(--raise));
+                transform: translate3d(0,0,var(--raise-inner));
                 .front {
-                	transform: translate3d(0,0,calc(var(--half-thickness) - 1px)) rotate3d(0,1,0,calc(-1*var(--angle) - 1deg));
+                	transform: translate3d(0,0,calc(var(--half-thickness) - 1px)) rotate3d(0,1,0,calc(-1*var(--angle-inner) - 1deg));
                 }
-                .pages .page.turned {
-                    transform: translate3d(0px,0,calc(var(--half-thickness))) rotate3d(0,1,0,calc(-1*var(--angle) + 1deg*(var(--index) + 1)));
+                .pages :global(.page.turned) {
+                    transform: translate3d(0px,0,calc(var(--half-thickness))) rotate3d(0,1,0,calc(-1*var(--angle-inner) + 1deg*(var(--index) + 1)));
                 }
             }
 
@@ -108,7 +109,7 @@
                 	transform: rotate3d(0,1,0,35deg);
                 }
                 &.flip {
-                    transform: translate3d(0,0,0px) rotate3d(0,1,0,var(--angle));
+                    transform: translate3d(0,0,0px) rotate3d(0,1,0,var(--angle-inner));
                 }
             }
 
@@ -117,7 +118,7 @@
                 pointer-events: none;
                 transform-style: preserve-3d;
     
-                .page {
+                :global(.page) {
                     @apply absolute inset-0;
     
                 	transform-origin: 0% 50%;
@@ -125,16 +126,16 @@
                     z-index: calc(var(--length) - var(--index));
                     transform-style: preserve-3d;
     
-                    &-front, &-back {
+                    :global(.page-front), :global(.page-back) {
                         @apply absolute inset-0;
                         backface-visibility: hidden;
                         pointer-events: auto;
                     }
-                    &-front {
+                    :global(.page-front) {
                         z-index: -1;
                         transform: translate3d(0,0,calc(var(--half-thickness) - 1px));
                     }
-                    &-back {
+                    :global(.page-back) {
                         z-index: 1;
                         transform: rotate3d(0,1,0,calc(-180deg)) translate3d(0,0,calc(var(--half-thickness) - 1px));
                     }
@@ -168,10 +169,10 @@
             	transform: rotate3d(0,1,0,-90deg);
                 pointer-events: none;
     
-                & > * {
+                & > :global(*) {
                     @apply absolute inset-0 origin-top-left;
                     width: calc(100% * var(--aspect-ratio));
-                    height: var(--thickness);
+                    height: var(--thickness-inner);
                     transform: rotate(90deg) translateY(calc(-1*var(--half-thickness)));
                 }
             }   
