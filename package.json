@@ -2,12 +2,13 @@
 	"name": "3d-book-svelte",
 	"version": "0.0.6",
 	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"preview": "svelte-kit preview",
+		"dev": "vite dev",
+		"build": "vite build",
+		"package": "svelte-kit package",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"package": "svelte-kit package",
 		"lint": "prettier --check .",
 		"format": "prettier --write .",
 		"publish": "pnpm run lint && pnpm run package && pnpm publish ./package"
@@ -27,8 +28,9 @@
 		"svelte-typed-context": "^1.0.1",
 		"svelte2tsx": "^0.4.7",
 		"tailwindcss": "^2.2.16",
-		"tslib": "^2.3.1",
-		"typescript": "^4.4.4"
+		"tslib": "^2.4.0",
+		"typescript": "^4.7.4",
+		"vite": "^3.0.0"
 	},
 	"type": "module",
 	"homepage": "https://github.com/tomatrow/3d-book-svelte#readme"
